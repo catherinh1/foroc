@@ -1,0 +1,74 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="co"></div>
+            <div class="col">
+                <div class="card">
+                    <div class="card-header">Agregar Pregunta</div>
+                    <div class="card-body">
+                <select name=""id=""class="form-select"[(ngModel)]= "newP.categoria">
+                <option value="General">General</option>
+                <option value="Programacion">Programacion</option>
+                <option value="Redes">Redes</option>
+                </select>
+                <input type="text" class="form-control mt-1"[(ngModel)]= "newP.pregunta">
+                <button class="btn-outline-primary" (click)="crearPregunta()">
+                    <i class="bi bi-could-upload-fill"></i>
+                </button>
+                
+
+
+            
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+       <table class="table table-hover table-dark">
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Pregunta</th>
+                <th>Correo </th>
+                <th></th>
+            </tr>
+        </thead>
+            <tbody>
+            <tr *ngFor="let p of preguntas">
+                <td>{{p.no}}</td>
+                <td>{{p.pregunta}}</td>
+                <td>{{p.correo}}</td>
+                <td class="text-end">
+                    <button class="btn btn-outline-secondary"><i class="bi bi-arrow-right-circle-fill" ></i></button>
+                    &nbsp;
+                    <button class="btn btn-outline-success"(click)="editarPregunta(p.id) "data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="bi bi-pencil-fill" ></i></button>
+                     &nbsp;
+                    <button class="btn btn-outline-danger"(click)="eliminarPregunta(p.id)"><i class="bi bi-trash-fill" ></i></button>
+                </td>
+                <th></th>
+            </tr>
+        </tbody>
+       </table>
+    </div>
+    </div>
+</div>
+
+<!--Modal-->
+<div class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Modal body text goes here.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary">Save changes</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
